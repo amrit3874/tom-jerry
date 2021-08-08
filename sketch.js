@@ -4,10 +4,10 @@ var garden,gardenimage;
 
 function preload() {
     //load the images here
-    tomrunningimage = loadAnimation("cat2.png,cat3.png");
-    tomimage = loadImage("cat1.png");
-    jerryteasingimage = loadAnimation("mouse1.png,mouse2.png,mouse3.png,mouse4.png");
-    gardenimage = loadimage("garden.png");
+    tomrunningimage = loadAnimation("images/cat2.png","images/cat3.png");
+    tomimage = loadAnimation("images/cat1.png");
+    jerryteasingimage = loadAnimation("images/mouse1.png","images/mouse2.png","images/mouse3.png","images/mouse4.png");
+    gardenimage = loadImage("images/garden.png");
 
 }
 
@@ -15,24 +15,24 @@ function setup(){
     createCanvas(800,800);
     //create tom and jerry sprites here
     tom = createSprite(150,275,50,50);
-    tom.addImage(tomimage);
-
-    garden = createSprite(600,600);
-    garden.addImage(gardenimage);
-
-    jerry = createSprite(40,250,30,30);
     
+    tom.addAnimation("sitting",tomimage);
+    tom
+    tom.scale = 0.1;
 
+     
+    jerry = createSprite(40,250,30,30);
+    jerry.addAnimation("teasing",jerryteasingimage);
+    jerry.scale = 0.1;
 }
 
 function draw() {
-    background(0);
+    background(gardenimage );
     //Write condition here to evalute if tom and jerry collide
    text(mouseX + ',' + mouseY , 10 , 45);
    
     drawSprites();
 }
-
 
 function keyPressed(){
 
